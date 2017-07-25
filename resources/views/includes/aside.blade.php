@@ -9,7 +9,7 @@
                 <img src="{{ asset("/admin-lte/dist/img/user2-160x160.jpg") }}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>Alexander Pierce</p>
+                <p>DungVan {{$userAdmin=''}}</p>
                 <!-- Status -->
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -29,21 +29,25 @@
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
-            <li class="header">HEADER</li>
+            <li class="header">MAIN NAVIGATION</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-            <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
             <li class="treeview">
-                <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
+                <a href="#"><i class="fa fa-link"></i> <span>Management</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Link in level 2</a></li>
-                    <li><a href="#">Link in level 2</a></li>
+                    <li><a href="#">Users Management</a></li>
+                    <li><a href="#">Categories Management</a></li>
+                    <li><a href="#">Orders Management</a></li>
+                    <li><a href="#">Daily Menu Management</a></li>
+                    <li><a href="#">Food Management</a></li>
+                    <li><a href="#">Material Management</a></li>
                 </ul>
             </li>
+            <li><a href="#"><i class="fa fa-link"></i> <span>Statistical</span></a></li>
         </ul>
         <!-- /.sidebar-menu -->
     </section>
