@@ -12,8 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('dashboard');
+    return view('admin.dashboard');
 });
 Route::get('/user', function () {
-    return view('users.detailuser');
+    return view('admin.users.detail-user');
 });
+Route::get('/categories', function () {
+    return view('admin.categories.list-categories');
+});
+

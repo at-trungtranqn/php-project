@@ -18,13 +18,13 @@
 <div class="wrapper">
 
     <!-- Main Header -->
-    @include('includes.header')
+    @include('admin.includes.header')
     <!-- Left side column. contains the logo and sidebar -->
-    @include('includes.aside')
+    @include('admin.includes.aside')
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        @include('includes.pageheader')
+        @include('admin.includes.pageheader')
 
         <!-- Main content -->
         <section class="content">
@@ -39,9 +39,9 @@
     <!-- /.content-wrapper -->
 
     <!-- Main Footer -->
-    @include('includes.footer')
+    @include('admin.includes.footer')
 
-    @include('includes.header-control')
+    @include('admin.includes.header-control')
     <!-- Add the sidebar's background. This div must be placed
          immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
