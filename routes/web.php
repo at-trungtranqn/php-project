@@ -12,5 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('dashboard');
+    return view('admin.dashboard');
+})->name('home');
+Route::get('/user', function () {
+    return view('admin.users.detail-user');
+});
+Route::get('/categories', function () {
+    return view('admin.categories.list-categories');
+});
+Route::get('/food', function () {
+    return view('admin.food.list-food');
+});
+Route::get('/material', function () {
+    return view('admin.material.list-material');
+});
+Route::get('/orders', function () {
+    return view('admin.orders.list-orders');
 });
