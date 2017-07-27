@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="{{ asset("/admin-lte/dist/css/AdminLTE.min.css") }}">
     <link rel="stylesheet" href="{{ asset("/admin-lte/dist/css/skins/skin-blue.min.css") }}">
+    <link rel="stylesheet" href="{{ asset("/admin-lte/plugins/datatables/dataTables.bootstrap.css") }}">
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 </head>
@@ -17,14 +18,14 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
-    <!-- Main Header -->
+    <!-- Header -->
     @include('admin.includes.header')
     <!-- Left side column. contains the logo and sidebar -->
     @include('admin.includes.aside')
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        @include('admin.includes.pageheader')
+        @include('admin.includes.main-header')
 
         <!-- Main content -->
         <section class="content">
@@ -56,6 +57,18 @@
 <script src="{{ asset("/admin-lte/bootstrap/js/bootstrap.min.js") }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset("/admin-lte/dist/js/app.min.js") }}"></script>
+
+<script src="{{ asset("/admin-lte/plugins/datatables/dataTables.bootstrap.min.js") }}"></script>
+
+<script src="{{ asset("/admin-lte/plugins/datatables/jquery.dataTables.min.js") }}"></script>
+
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable();
+    $('#example3').DataTable();
+  });
+</script>
 
 </body>
 </html>

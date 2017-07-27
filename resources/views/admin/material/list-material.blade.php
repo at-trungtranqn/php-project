@@ -15,8 +15,11 @@
                             <thead>
                             <tr role="row">
                                 <th style="width: 1em">ID</th>
-                                <th style="width: 7em">Name</th>
+                                <th style="width: 7em">material Name</th>
+                                <th style="width: 7em">Category Name</th>
+                                <th style="width: 5em">From</th>
                                 <th>Description</th>
+                                <th style="width: 3em">Price</th>
                                 <th style="width: 8em">Detail - Edit</th>
                                 <th style="width: 1em">Delele</th>
                             </tr>
@@ -25,10 +28,13 @@
                             @for($i = 0; $i < 10;)
                                 <tr>
                                     <td>{{ ++$i }}</td>
-                                    <td>{{ $categoryName = 'canh cá'.$i  }}</td>
+                                    <td>{{ $materialName = 'fish-fish-fish '.$i }}</td>
+                                    <td>{{ $categoryName = 'canh cá '.$i  }}</td>
+                                    <td>{{ $from = 'đà lạt '.$i }}</td>
                                     <td>this is description</td>
-                                    <td><a href="{{ route('detail-category') }}"><span class="glyphicon glyphicon-zoom-in">detail</span></a> - <a
-                                                href="{{ route('edit-category') }}"><span class="glyphicon glyphicon-pencil">edit</span></a></td>
+                                    <td>{{ 10.000 }}</td>
+                                    <td><a href="{{ route('detail-material') }}"><span class="glyphicon glyphicon-zoom-in">detail</span></a> - <a
+                                                href="{{ route('edit-material') }}"><span class="glyphicon glyphicon-pencil">edit</span></a></td>
                                     <td><button class="btn-xs btn-danger btn">delete</button></td>
                                 </tr>
                             @endfor
