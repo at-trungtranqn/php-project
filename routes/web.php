@@ -31,9 +31,18 @@ Route::get('/users/update-user', function () {
     return view('admin.users.update-user');
 });
 
+Route::get('/categories/create-category', function () {
+    return view('admin.categories.create-category');
+});
+
+Route::get('/categories/update-category', function () {
+    return view('admin.categories.update-category');
+})->name('detail-order');
+
 Route::get('/categories', function () {
     return view('admin.categories.list-categories');
 });
+
 Route::get('/detail-category', function () {
     return view('admin.categories.list-categories');
 })->name('detail-category');
@@ -73,3 +82,4 @@ Route::get('/orders', function () {
 Route::get('/detail-order', function () {
     return view('admin.orders.list-orders');
 })->name('detail-order');
+

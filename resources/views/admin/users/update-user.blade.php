@@ -1,6 +1,5 @@
 @extends('admin.layouts.master')
 @section('main-content')
-<div class="container">
   <div class="row">
     <!-- left column -->
     <div class="col-md-4 col-sm-6 col-xs-12">
@@ -88,5 +87,4 @@
       </form>
     </div>
   </div>
-</div>
 @endsection
