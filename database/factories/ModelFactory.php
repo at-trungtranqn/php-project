@@ -84,7 +84,8 @@ $factory->define(App\Materials::class, function (Faker\Generator $faker){
     return [
         'name' => $faker->name,
         'price' => 10.00,
-        'description' => $faker->paragraph
+        'description' => $faker->paragraph,
+        'image' => $faker->paragraph
     ];
 });
 

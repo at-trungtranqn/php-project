@@ -15,13 +15,13 @@ class CreateOrderItemsTable extends Migration
     {
         Schema::create('order_items', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('target_id')->nullable();
-            $table->string('target_type')->nullable();
+            $table->integer('target_id')->unsigned();
+            $table->string('target_type');
             $table->integer('order_id')->unsigned();
             $table->tinyInteger('quantity');
             $table->foreign('order_id')->references('id')->on('orders');
-            // $table->foreign('target_id')->references('id')->on('food');
-            // $table->foreign('target_id')->references('id')->on('material');
+            $table->foreign('target_id','foreign_1')->references('id')->on('food');
+             $table->foreign('target_id','foreign_2')->references('id')->on('materials');
         });
     }
 
