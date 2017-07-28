@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 @extends('admin.layouts.master')
+=======
+@extends('layouts.master')
+>>>>>>> cee42efa398b59ea788833100cdf31b826b7df2a
 @section('main-content')
 <div class="container bootstrap snippet">
 <div class="panel-body inf-content">
