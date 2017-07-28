@@ -15,25 +15,23 @@
                             <thead>
                             <tr role="row">
                                 <th style="width: 1em">ID</th>
+                                <th style="width: 1em">FID</th>
                                 <th style="width: 7em">Food Name</th>
-                                <th style="width: 7em">Category Name</th>
-                                <th>Description</th>
-                                <th style="width: 3em">Price</th>
-                                <th style="width: 8em">Detail - Edit</th>
-                                <th style="width: 1em">Delele</th>
+                                <th style="width: 1em">Quantity</th>
+                                <th style="width: 8em">Date</th>
+                                <th style="width: 1em">Detail - Edit</th>
                             </tr>
                             </thead>
                             <tbody>
                             @for($i = 0; $i < 10;)
                                 <tr>
                                     <td>{{ ++$i }}</td>
-                                    <td>{{ $foodName = 'fish-fish-fish '.$i }}</td>
-                                    <td>{{ $categoryName = 'canh cá '.$i  }}</td>
-                                    <td>this is description</td>
-                                    <td>{{ 10.000 }}</td>
+                                    <td>{{ $foodId = $i }}</td>
+                                    <td>{{ $foodName = 'canh cá '.$i  }}</td>
+                                    <td>{{ 30 }}</td>
+                                    <td>{{ $date = '30-01-2017' }}</td>
                                     <td><a href="{{ route('detail-food') }}"><span class="glyphicon glyphicon-zoom-in">detail</span></a> - <a
                                                 href="{{ route('update-food') }}"><span class="glyphicon glyphicon-pencil">edit</span></a></td>
-                                    <td><button class="btn-xs btn-danger btn">delete</button></td>
                                 </tr>
                             @endfor
                             </tbody>
