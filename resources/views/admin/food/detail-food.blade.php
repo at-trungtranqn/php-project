@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('admin.layouts.master')
 @section('main-content')
 <div class="container bootstrap snippet">
 <div class="panel-body inf-content">

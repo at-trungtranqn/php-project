@@ -56,7 +56,7 @@ Route::get('/food', function () {
 });
 
 Route::get('/detail-food', function () {
-    return view('admin.food.list-food');
+    return view('admin.food.detail-food');
 })->name('detail-food');
 
 Route::get('/edit-food', function () {
@@ -68,7 +68,7 @@ Route::get('/material', function () {
 });
 
 Route::get('/detail-material', function () {
-    return view('admin.material.list-material');
+    return view('admin.material.detail-material');
 })->name('detail-material');
 
 Route::get('/edit-food', function () {
