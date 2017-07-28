@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDailyMenuTable extends Migration
+class CreateDailyMenusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateDailyMenuTable extends Migration
      */
     public function up()
     {
-        Schema::create('daily_menu', function (Blueprint $table) {
+        Schema::create('daily_menus', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('food_id')->unsigned()->nullable();
             $table->integer('quantity');
-            $table->timestamps('date');
-            $table->foreign('food_id')->references('id')->on('food');
+            $table->date('date');
+            $table->foreign('food_id')->references('id')->on('foods');
         });
     }
 
@@ -29,6 +29,6 @@ class CreateDailyMenuTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('daily_menu');
+        Schema::dropIfExists('daily_menus');
     }
 }

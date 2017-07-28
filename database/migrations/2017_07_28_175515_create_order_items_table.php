@@ -20,8 +20,6 @@ class CreateOrderItemsTable extends Migration
             $table->integer('order_id')->unsigned();
             $table->tinyInteger('quantity');
             $table->foreign('order_id')->references('id')->on('orders');
-            $table->foreign('target_id','foreign_1')->references('id')->on('food');
-             $table->foreign('target_id','foreign_2')->references('id')->on('materials');
         });
     }
 

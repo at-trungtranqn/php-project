@@ -12,11 +12,6 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-/**
- *
- * Define seed database for User table
- *
- */
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
 
@@ -24,105 +19,79 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'full_name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
-        'birthday' => $faker->dateTimeThisMonth()->format('Y-m-d H:i:s'),
-        'gender' => 1,
-        'address' => $faker->address,
-        'phone_number' => "0123456",
-        'is_admin' => 0,
-        'is_active' => 0,
+        'is_admin' => random_int(0,1),
         'remember_token' => str_random(10),
     ];
 });
-
-/**
- *
- * Define seed database for Suppliers table
- *
- */
-$factory->define(App\Suppliers::class, function (Faker\Generator $faker) {
-
+$factory->define(App\Category::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
+        'name' => $faker->company,
         'description' => $faker->paragraph
     ];
 });
 
-/**
- *
- * Define seed database for Categories table
- *
- */
-$factory->define(App\Categories::class, function (Faker\Generator $faker) {
-
+$factory->define(App\Supplier::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->jobTitle,
+        'name' => $faker->company,
         'description' => $faker->paragraph
     ];
 });
 
-/**
- *
- * Define seed database for table Orders
- *
- */
-$factory->define(App\Orders::class, function (Faker\Generator $faker){
-
-    return [
-        'trans_at' => $faker->dateTime(),
-        'custom_address' => $faker->address,
-        'status' => 0
-    ];
-});
-
-/**
- *
- * Define seed database for table Materials
- *
- */
-$factory->define(App\Materials::class, function (Faker\Generator $faker){
-
+$factory->define(App\Food::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
-        'price' => 10.00,
+        'price' => $faker->numberBetween(10, 100),
+        'category_id' => $faker->randomElement(App\Category::pluck('id')->toArray()),
         'description' => $faker->paragraph,
-        'image' => $faker->paragraph
+        'image' => $faker->imageUrl($width = 640, $height = 480)
+    ];
+});
+$factory->define(App\DailyMenu::class, function (Faker\Generator $faker) {
+
+    return [
+        'food_id' => $faker->randomElement(App\Food::pluck('id')->toArray()),
+        'quantity' => $faker->numberBetween(1, 10),
+        'date' => $faker->date()
     ];
 });
 
-/**
- *
- * Define seed database for table Food
- *
- */
-$factory->define(App\Food::class, function (Faker\Generator $faker){
-
+$factory->define(App\Material::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
-        'price' => 10.00,
-        'description' => $faker->paragraph
+        'price' => $faker->numberBetween(10, 100),
+        'category_id' => $faker->randomElement(App\Category::pluck('id')->toArray()),
+        'description' => $faker->paragraph,
+        'image' => $faker->imageUrl($width = 640, $height = 480),
+        'supplier_id' => $faker->randomElement(App\Supplier::pluck('id')->toArray())
     ];
 });
 
-/**
- *
- * Define seed database for table dailymenu
- *
- */
-$factory->define(App\DailyMenu::class, function (Faker\Generator $faker){
-
+$factory->define(App\Order::class, function (Faker\Generator $faker) {
     return [
-        'quantity' => 20
+        'user_id' => $faker->randomElement(App\User::pluck('id')->toArray()),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        'trans_at' => $faker->dateTime,
+        'custom_address' => $faker->paragraph,
+        'payment' => 10000,
+        'status' => random_int(0, 3)
     ];
 });
 
-/**
- *
- * Define seed database for table order_item
- *
- */
-$factory->define(App\OrderItems::class, function (Faker\Generator $faker){
-
-    return [
-        'quantity' => 2
-    ];
+$factory->define(App\OrderItem::class, function (Faker\Generator $faker) {
+    $rand = random_int(0, 1);
+    if ($rand == 1) {
+        return [
+            'target_id' => $faker->randomElement(App\Food::pluck('id')->toArray()),
+            'target_type' => 'food',
+            'quantity' => random_int(1, 5)
+        ];
+    }
+    else {
+        return [
+            'target_id' => $faker->randomElement(App\Material::pluck('id')->toArray()),
+            'target_type' => 'material',
+            'quantity' => random_int(1, 5)
+        ];
+    }
 });

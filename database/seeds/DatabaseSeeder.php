@@ -11,13 +11,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Suppliers::class, 50)->create();
-        factory(App\Categories::class, 20)->create();
-        factory(App\User::class, 50)->create()->each(function(App\User $user) {
-                factory(App\Orders::class, 2)
-                    ->create([
-                        'user_id' => $user->id,
-                    ]);
-            });
+        factory(App\User::class, 70)->create();
+        factory(App\Category::class, 20)->create();
+        factory(App\Food::class, 50)->create();
+        factory(App\DailyMenu::class, 50)->create();
+        factory(App\Supplier::class, 5)->create();
+        factory(App\Material::class, 50)->create();
+        factory(App\Order::class, 50)->create()->each(function ($order){
+            factory(App\OrderItem::class, random_int(1,5))->create(['order_id' => $order->id,]);
+        });
     }
 }
